@@ -1,0 +1,23 @@
+      - type: vertical-stack
+        cards:
+          - content: |
+              ## Code TEMPLATENUM
+            type: markdown
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: input_text.LOCKNAME_name_TEMPLATENUM
+              - entity: input_text.LOCKNAME_pin_TEMPLATENUM
+              - entity: input_boolean.enabled_LOCKNAME_TEMPLATENUM
+              - entity: input_boolean.notify_LOCKNAME_TEMPLATENUM
+              - type: divider
+              - entity: sensor.connected_LOCKNAME_TEMPLATENUM
+                state_color: true
+              - entity: binary_sensor.active_LOCKNAME_TEMPLATENUM
+                state_color: true
+              - type: 'custom:fold-entity-row'
+                head:
+                  type: section
+                  label: Advanced Options
+                entities:
+                  - entity: input_boolean.reset_codeslot_LOCKNAME_TEMPLATENUM

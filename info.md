@@ -1,5 +1,5 @@
-# keymaster
-Home Assistant Zwave keymaster package
+# keymaster-simple
+Home Assistant Zwave keymaster package without the scheduling and limited use pins
 
 **N.B.**  After you add your devices (Zwave lock, door sensor) to your Z-Wave network via the inclusion mode, use the Home Assistant Entity Registry to rename each entity that belongs to the device and append `_LOCKNAME` to it.  For example, if you are calling your lock `FrontDoor`, you will want to append _FrontDoor to each entity of the device.
 
