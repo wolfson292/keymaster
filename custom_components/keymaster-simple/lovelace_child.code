@@ -23,4 +23,3 @@
                   label: Advanced Options
                 entities:
                   - entity: input_boolean.reset_codeslot_LOCKNAME_TEMPLATENUM
-                  
