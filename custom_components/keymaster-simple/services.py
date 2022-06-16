@@ -1,4 +1,4 @@
-"""Services for keymaster-simple."""
+"""Services for keymaster_simple."""
 import logging
 import os
 from typing import Any, Dict, Mapping
@@ -88,7 +88,7 @@ async def refresh_codes(
             if config_entry.data[CONF_LOCK_ENTITY_ID] == entity_id
         )
     except StopIteration:
-        _LOGGER.error("Entity ID %s not set up in keymaster-simple", entity_id)
+        _LOGGER.error("Entity ID %s not set up in keymaster_simple", entity_id)
         return
 
     ent_reg = async_get_entity_registry(hass)

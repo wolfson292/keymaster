@@ -1,6 +1,6 @@
 {
-  "name": "keymaster-simple",
+  "name": "keymaster_simple",
   "zip_release": true,
-  "filename": "keymaster-simple.zip",
+  "filename": "keymaster_simple.zip",
   "homeassistant": "2022.4.0"
 }

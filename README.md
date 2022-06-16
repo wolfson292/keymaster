@@ -1,4 +1,4 @@
-# keymaster-simple
+# keymaster_simple
 
 Home Assistant keymaster integration for Z-Wave enabled locks. This integration allows you to control one (or more) Z-Wave enabled locks that have been added to your Z-Wave network.  Besides being able to control your lock with lock/unlock commands, you can also control who may lock/unlock the device using the lock's front facing keypad.  With the integration you may create multiple users or slots and each slot (the number depends upon the lock model) has its own PIN code.
 

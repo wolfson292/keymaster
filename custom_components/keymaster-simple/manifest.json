@@ -1,7 +1,7 @@
 {
-  "domain": "keymaster-simple",
-  "name": "keymaster-simple",
-  "documentation": "https://github.com/wolfson292/keymaster-simple",
+  "domain": "keymaster_simple",
+  "name": "keymaster_simple",
+  "documentation": "https://github.com/wolfson292/keymaster_simple",
   "dependencies": [],
   "after_dependencies": [
     "automation",
@@ -18,7 +18,7 @@
   ],
   "codeowners": ["@wolfson292", "@FutureTense", "@firstof9", "@raman325"],
   "config_flow": true,
-  "issue_tracker": "https://github.com/wolfson292/keymaster-simple/issues",
+  "issue_tracker": "https://github.com/wolfson292/keymaster_simple/issues",
   "requirements": [],
   "iot_class": "local_polling",
   "version": "v0.0.0"

@@ -1,10 +1,10 @@
 generate_package:
   name: Generate lock manager files
-  description: (Re-)Generates the package files that are used to provide the input helpers and automations that make Keymaster-simple work
+  description: (Re-)Generates the package files that are used to provide the input helpers and automations that make keymaster_simple work
   fields:
     lockname:
       name: Lock Name
-      description: The name that you specified during keymaster-simple configuration.
+      description: The name that you specified during keymaster_simple configuration.
       example: frontdoor
       required: true
       selector:

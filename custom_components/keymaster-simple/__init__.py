@@ -1,4 +1,4 @@
-"""keymaster-simple Integration."""
+"""keymaster_simple Integration."""
 import asyncio
 from datetime import timedelta
 import functools

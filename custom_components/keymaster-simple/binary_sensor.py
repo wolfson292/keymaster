@@ -1,4 +1,4 @@
-"""Sensor for keymaster-simple."""
+"""Sensor for keymaster_simple."""
 import logging
 from typing import List
 

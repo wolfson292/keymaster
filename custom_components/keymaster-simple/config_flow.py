@@ -1,4 +1,4 @@
-"""Adds config flow for keymaster-simple."""
+"""Adds config flow for keymaster_simple."""
 import asyncio
 import logging
 import os
@@ -55,7 +55,7 @@ CHILD_LOCKS_SCHEMA = cv.schema_with_slug_keys(
 
 @config_entries.HANDLERS.register(DOMAIN)
 class KeyMasterSimpleFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
-    """Config flow for KeyMaster-simple."""
+    """Config flow for keymaster_simple."""
 
     VERSION = 2
     CONNECTION_CLASS = config_entries.CONN_CLASS_LOCAL_POLL

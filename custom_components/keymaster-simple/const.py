@@ -1,7 +1,7 @@
 """Constants for keymaster."""
 from homeassistant.const import STATE_LOCKED, STATE_UNLOCKED
 
-DOMAIN = "keymaster-simple"
+DOMAIN = "keymaster_simple"
 VERSION = "v0.0.0"  # this will be automatically updated as part of the release workflow
 ISSUE_URL = "https://github.com/wolfson292/keymaster"
 PLATFORMS = ["binary_sensor", "sensor"]
@@ -52,7 +52,7 @@ CONF_START = "start_from"
 
 # Defaults
 DEFAULT_CODE_SLOTS = 10
-DEFAULT_PACKAGES_PATH = "packages/keymaster-simple/"
+DEFAULT_PACKAGES_PATH = "packages/keymaster_simple/"
 DEFAULT_START = 1
 DEFAULT_GENERATE = True
 DEFAULT_DOOR_SENSOR = "binary_sensor.fake"
