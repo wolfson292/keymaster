@@ -111,7 +111,7 @@ def get_code_slots_list(data: Dict[str, int]) -> List[int]:
     return list(range(data[CONF_START], data[CONF_START] + data[CONF_SLOTS]))
 
 
-async def generate_keymaster_simple_locks(
+async def generate_keymaster_locks(
     hass: HomeAssistant, config_entry: ConfigEntry
 ) -> Tuple[KeymasterSimpleLock, List[KeymasterSimpleLock]]:
     """Generate primary and child keymaster locks from config entry."""

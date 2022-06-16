@@ -69,7 +69,7 @@ from .helpers import (
     async_using_zwave_js,
     delete_folder,
     delete_lock_and_base_folder,
-    generate_keymaster_simple_locks,
+    generate_keymaster_locks,
     get_code_slots_list,
     handle_state_change,
     handle_zwave_js_event,
@@ -162,7 +162,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
 
     config_entry.add_update_listener(update_listener)
 
-    primary_lock, child_locks = await generate_keymaster_simple_locks(hass, config_entry)
+    primary_lock, child_locks = await generate_keymaster_locks(hass, config_entry)
 
     hass.data[DOMAIN][config_entry.entry_id] = {
         PRIMARY_LOCK: primary_lock,
@@ -430,7 +430,7 @@ async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> Non
         options={},
     )
 
-    primary_lock, child_locks = await generate_keymaster_simple_locks(hass, config_entry)
+    primary_lock, child_locks = await generate_keymaster_locks(hass, config_entry)
 
     hass.data[DOMAIN][config_entry.entry_id].update(
         {
