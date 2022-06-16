@@ -108,7 +108,7 @@ automation:
   - alias: frontdoor Lock Notifications
     trigger:
       platform: event
-      event_type: keymaster_lock_state_changed
+      event_type: keymaster_simple_lock_state_changed
       event_data:
         lockname: frontdoor
     condition:
@@ -127,7 +127,7 @@ automation:
   - alias: frontdoor User Notifications
     trigger:
       platform: event
-      event_type: keymaster_lock_state_changed
+      event_type: keymaster_simple_lock_state_changed
       event_data:
         lockname: frontdoor
     condition:
@@ -224,7 +224,7 @@ automation:
   - alias: frontdoor Decrement Access Count
     trigger:
       platform: event
-      event_type: keymaster_lock_state_changed
+      event_type: keymaster_simple_lock_state_changed
       event_data:
         lockname: frontdoor
     condition:

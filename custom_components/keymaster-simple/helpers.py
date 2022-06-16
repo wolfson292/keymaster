@@ -55,7 +55,7 @@ from .const import (
     LOCK_STATE_MAP,
     PRIMARY_LOCK,
 )
-from .lock import KeymasterLock
+from .lock import KeymasterSimpleLock
 
 zwave_js_supported = True
 
@@ -80,7 +80,7 @@ _LOGGER = logging.getLogger(__name__)
 @callback
 def _async_using(
     domain: str,
-    lock: Optional[KeymasterLock],
+    lock: Optional[KeymasterSimpleLock],
     entity_id: Optional[str],
     ent_reg: Optional[EntityRegistry],
 ) -> bool:
@@ -98,7 +98,7 @@ def _async_using(
 
 @callback
 def async_using_zwave_js(
-    lock: KeymasterLock = None, entity_id: str = None, ent_reg: EntityRegistry = None
+    lock: KeymasterSimpleLock = None, entity_id: str = None, ent_reg: EntityRegistry = None
 ) -> bool:
     """Returns whether the zwave_js integration is configured."""
     return zwave_js_supported and _async_using(
@@ -113,10 +113,10 @@ def get_code_slots_list(data: Dict[str, int]) -> List[int]:
 
 async def generate_keymaster_locks(
     hass: HomeAssistant, config_entry: ConfigEntry
-) -> Tuple[KeymasterLock, List[KeymasterLock]]:
+) -> Tuple[KeymasterSimpleLock, List[KeymasterSimpleLock]]:
     """Generate primary and child keymaster locks from config entry."""
     ent_reg = async_get_entity_registry(hass)
-    primary_lock = KeymasterLock(
+    primary_lock = KeymasterSimpleLock(
         config_entry.data[CONF_LOCK_NAME],
         config_entry.data[CONF_LOCK_ENTITY_ID],
         config_entry.data.get(CONF_ALARM_LEVEL_OR_USER_CODE_ENTITY_ID),
@@ -126,7 +126,7 @@ async def generate_keymaster_locks(
         parent=config_entry.data[CONF_PARENT],
     )
     child_locks = [
-        KeymasterLock(
+        KeymasterSimpleLock(
             lock_name,
             lock[CONF_LOCK_ENTITY_ID],
             lock.get(CONF_ALARM_LEVEL_OR_USER_CODE_ENTITY_ID),
@@ -142,8 +142,8 @@ async def generate_keymaster_locks(
 async def async_update_zwave_js_nodes_and_devices(
     hass: HomeAssistant,
     entry_id: str,
-    primary_lock: KeymasterLock,
-    child_locks: List[KeymasterLock],
+    primary_lock: KeymasterSimpleLock,
+    child_locks: List[KeymasterSimpleLock],
 ) -> None:
     """Update Z-Wave JS nodes and devices."""
     client = hass.data[ZWAVE_JS_DOMAIN][entry_id][ZWAVE_JS_DATA_CLIENT]
@@ -188,7 +188,7 @@ def output_to_file_from_template(
 def delete_lock_and_base_folder(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
     """Delete packages folder for lock and base keymaster folder if empty."""
     base_path = os.path.join(hass.config.path(), config_entry.data[CONF_PATH])
-    lock: KeymasterLock = hass.data[DOMAIN][config_entry.entry_id][PRIMARY_LOCK]
+    lock: KeymasterSimpleLock = hass.data[DOMAIN][config_entry.entry_id][PRIMARY_LOCK]
 
     delete_folder(base_path, lock.lock_name)
     if not os.listdir(base_path):
@@ -208,8 +208,8 @@ def delete_folder(absolute_path: str, *relative_paths: str) -> None:
 
 def handle_zwave_js_event(hass: HomeAssistant, config_entry: ConfigEntry, evt: Event):
     """Handle Z-Wave JS event."""
-    primary_lock: KeymasterLock = hass.data[DOMAIN][config_entry.entry_id][PRIMARY_LOCK]
-    child_locks: List[KeymasterLock] = hass.data[DOMAIN][config_entry.entry_id][
+    primary_lock: KeymasterSimpleLock = hass.data[DOMAIN][config_entry.entry_id][PRIMARY_LOCK]
+    child_locks: List[KeymasterSimpleLock] = hass.data[DOMAIN][config_entry.entry_id][
         CHILD_LOCKS
     ]
 
@@ -262,8 +262,8 @@ def handle_state_change(
     new_state: State,
 ) -> None:
     """Listener to track state changes to lock entities."""
-    primary_lock: KeymasterLock = hass.data[DOMAIN][config_entry.entry_id][PRIMARY_LOCK]
-    child_locks: List[KeymasterLock] = hass.data[DOMAIN][config_entry.entry_id][
+    primary_lock: KeymasterSimpleLock = hass.data[DOMAIN][config_entry.entry_id][PRIMARY_LOCK]
+    child_locks: List[KeymasterSimpleLock] = hass.data[DOMAIN][config_entry.entry_id][
         CHILD_LOCKS
     ]
 

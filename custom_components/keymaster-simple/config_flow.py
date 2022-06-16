@@ -1,4 +1,4 @@
-"""Adds config flow for keymaster."""
+"""Adds config flow for keymaster-simple."""
 import asyncio
 import logging
 import os
@@ -54,8 +54,8 @@ CHILD_LOCKS_SCHEMA = cv.schema_with_slug_keys(
 
 
 @config_entries.HANDLERS.register(DOMAIN)
-class KeyMasterFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
-    """Config flow for KeyMaster."""
+class KeyMasterSimpleFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
+    """Config flow for KeyMaster-simple."""
 
     VERSION = 2
     CONNECTION_CLASS = config_entries.CONN_CLASS_LOCAL_POLL
@@ -92,10 +92,10 @@ class KeyMasterFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     @staticmethod
     @callback
     def async_get_options_flow(config_entry: config_entries.ConfigEntry):
-        return KeyMasterOptionsFlow(config_entry)
+        return KeyMasterSimpleOptionsFlow(config_entry)
 
 
-class KeyMasterOptionsFlow(config_entries.OptionsFlow):
+class KeyMasterSimpleOptionsFlow(config_entries.OptionsFlow):
     """Options flow for KeyMaster."""
 
     def __init__(self, config_entry: config_entries.ConfigEntry):
@@ -243,7 +243,7 @@ def _get_schema(
 
 
 def _show_config_form(
-    cls: Union[KeyMasterFlowHandler, KeyMasterOptionsFlow],
+    cls: Union[KeyMasterSimpleFlowHandler, KeyMasterSimpleOptionsFlow],
     step_id: str,
     user_input: Dict[str, Any],
     errors: Dict[str, str],
@@ -261,7 +261,7 @@ def _show_config_form(
 
 
 async def _start_config_flow(
-    cls: Union[KeyMasterFlowHandler, KeyMasterOptionsFlow],
+    cls: Union[KeyMasterSimpleFlowHandler, KeyMasterSimpleOptionsFlow],
     step_id: str,
     title: str,
     user_input: Dict[str, Any],

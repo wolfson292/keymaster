@@ -25,7 +25,7 @@ from .const import (
     DOMAIN,
     PRIMARY_LOCK,
 )
-from .lock import KeymasterLock
+from .lock import KeymasterSimpleLock
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -93,10 +93,10 @@ class CodesSensor(CoordinatorEntity, SensorEntity):
         self._code_slot = code_slot
         self._state = None
         self._name = f"Code Slot {code_slot}"
-        self.primary_lock: KeymasterLock = hass.data[DOMAIN][entry.entry_id][
+        self.primary_lock: KeymasterSimpleLock = hass.data[DOMAIN][entry.entry_id][
             PRIMARY_LOCK
         ]
-        self.child_locks: List[KeymasterLock] = hass.data[DOMAIN][entry.entry_id][
+        self.child_locks: List[KeymasterSimpleLock] = hass.data[DOMAIN][entry.entry_id][
             CHILD_LOCKS
         ]
 

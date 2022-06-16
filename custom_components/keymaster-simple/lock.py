@@ -7,7 +7,7 @@ from homeassistant.helpers.entity_registry import EntityRegistry
 
 
 @dataclass
-class KeymasterLock:
+class KeymasterSimpleLock:
     """Class to represent a keymaster lock."""
 
     lock_name: str
