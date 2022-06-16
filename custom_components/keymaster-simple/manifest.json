@@ -1,7 +1,7 @@
 {
-  "domain": "keymaster",
-  "name": "keymaster",
-  "documentation": "https://github.com/FutureTense/keymaster",
+  "domain": "keymaster-simple",
+  "name": "keymaster-simple",
+  "documentation": "https://github.com/wolfson292/keymaster-simple",
   "dependencies": [],
   "after_dependencies": [
     "automation",
@@ -16,9 +16,9 @@
     "zwave",
     "zwave_js"
   ],
-  "codeowners": ["@FutureTense", "@firstof9", "@raman325"],
+  "codeowners": ["@wolfson292", "@FutureTense", "@firstof9", "@raman325"],
   "config_flow": true,
-  "issue_tracker": "https://github.com/FutureTense/keymaster/issues",
+  "issue_tracker": "https://github.com/wolfson292/keymaster-simple/issues",
   "requirements": [],
   "iot_class": "local_polling",
   "version": "v0.0.0"
